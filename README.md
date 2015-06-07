@@ -10,10 +10,21 @@ The Metro OAuth server will simplify your work of issuing JWT (JSON Web Tokens) 
             appBuilder.UseOAuthAuthorizationServer(new MetroOAuthServerOptions(new ApplicationDbContext()));
         }
         
-2. Add a section to your web.config file
-      <configuration>
+2. Add a section to your web.config file:
+      
         <configSections>
           <section name="metroOAuthConfig" type="MetroOAuth.Jwt.MetroLib.Config.OAuthConfig" />
         </configSections>
 
-3. 
+3. Define the section in your web.config as follows:
+
+        <metroOAuthConfig
+            certLocation="LocalMachine"
+            certStore="My" 
+            certFindValue="MetroOAuthServer"
+            certFindType="FindByIssuerName"
+            tokenPath="/token"
+            accessTokenExpireTimeSpan="60.0"
+            allowInsecureHttp="true"
+            issuer="http://localhost" >
+        </metroOAuthConfig>
