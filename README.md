@@ -132,3 +132,16 @@ I am providing a seed method implementation here, which comes very handy to boot
                 }
             }
         }
+
+## Once an audience is registered ##
+Then all you need to do is to request the JWT from the MetroServer. The metro server will authenticate you against the Identity database, and will issue you the token. The Metro server requires you to provide a valid X509 certificate through the configuration as shown in preceeding section.
+
+I am using fiddler for now to do a post to the server in the following way:
+
+        URL: http://localhost/MetroOAuthServer/token
+        User-Agent: Fiddler
+        Content-Type: application/x-www-form-urlencoded
+        
+        POST Data/payload:
+                
+        username=username@example.com&password=YourStrongPassword&grant_type=password&client_Id=62b26683-6062-4a27-9e2c-60b83499d406&client_Secret=NSgaZpfIRLCews_4f3YHrCsq10v6UX0NoWTjvtkYlZUonumv5bFZ3aF2ygvm56Ht6MhwNU6ZI3QzBgdipSMcPQ
