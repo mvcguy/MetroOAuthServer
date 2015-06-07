@@ -112,5 +112,23 @@ I am providing a seed method implementation here, which comes very handy to boot
 
                 context.Apps.AddOrUpdate(x => x.Name, blogsApp, smsApp);
                 context.SaveChanges();
+                
+                var audienceStore = new AudienceStore<MetroAudience>(context);
+                var audienceManager = new AudienceManager(audienceStore);
+           
+                MetroAudience audience=null;
+                try
+                {
+                        audience=Task.Run(() =>
+                        {
+                            var result = audienceManager.CreateAudienceForAppAsync(appAdmin, blogsApp);
+                            return result;
+                        }).Result;
+                
+                }
+                catch (Exception e)
+                {
+                        var message = e.Message;
+                }
             }
         }
