@@ -1,4 +1,4 @@
-# MetroOAuthServer - [Nuget] (https://www.nuget.org/packages/MetroOAuth/ Nuget)
+# MetroOAuthServer - [Nuget] (https://www.nuget.org/packages/MetroOAuth/ "Nuget")
 
 The Metro OAuth server will simplify your work of issuing JWT (JSON Web Tokens) to your clients. All you need to do is to 
 
@@ -150,7 +150,7 @@ If everything goes as expected, the MetroServer will respond with a token as fol
 
         {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkpVLXFTd0diU2pTMDdSVVozRXViRXI4N2FhNCJ9.eyJ1bmlxdWVfbmFtZSI6Im1lLnNoYWhpZGFsaUB5YWhvby5jb20iLCJzdWIiOiJtZS5zaGFoaWRhbGlAeWFob28uY29tIiwicm9sZSI6ImFkZEFwcCIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3QiLCJhdWQiOiI2MmIyNjY4My02MDYyLTRhMjctOWUyYy02MGI4MzQ5OWQ0MDYiLCJleHAiOjE0MzM3MDU3MTUsIm5iZiI6MTQzMzcwMjExNX0.00gowfXkyA5D5jze0f5sqDH4hJ5s0K1mzL-KXfMjCWXmPYFSraJk31X2EFTL0QI1gN05N1I1gJ95CULc_hU0IU_CKFHq-T639S3K-k12MMz7TaqgCrnUE1LiBH-4HkbH27gyBsOpIjqxJ56WnSl-Nk5dwObGGHWbizN9m9guT2rWF5H07fvbYzvTieUN6BHYi46-J7dg0Wir7wE0A0s2DfYIlV6C1dG6pWBYwYXMB0FqmdY7_GbYBAdRp6SgZxmNyDdXoT5xDV0eBAaTxkXv22szWDiXBv6pdJrU3GOCaU-fa5Bnzc62WBnsuu4icA6o_PQovAPtwme11pZTM046o07RgiOxafP2oLI4SWr0BCeIjqH3jjWwXc-eH2lzWu3cUHwJXcexve-ovzyAu47mQAHckN7kJmOsfKpw-c9bSkVVvqWRLkrR0ykOrcP3_6fNL7sdcRu7DcDUlGgGtVjNVblDHROEzPApEr9LMEv4LmTAz8ecg5TVIXEpxu_U95Aj5jFHaDik_aIWjk3tkK4Cwp_NgJerVei8jem5pjCI--m17X1cJSknVqA1IhL_d8mm0Bv7n3JeZ5a7ih6b7fFbefkoPn7dIrs4KFihYRj_1FMDYHP117KKXkBDf18m8UxmORHZvm3RYgfU72C2IVfOP6RP7fAYS92TqObpXsManB8","token_type":"bearer","expires_in":3599}
         
-### [Nuget] (https://www.nuget.org/packages/MetroOAuth/ Nuget) ###
+### [Nuget] (https://www.nuget.org/packages/MetroOAuth/ "Nuget") ###
 
         PM> Install-Package MetroOAuth 
 
