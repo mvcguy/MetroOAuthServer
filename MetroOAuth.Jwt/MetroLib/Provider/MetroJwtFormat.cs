@@ -41,23 +41,30 @@ namespace MetroOAuth.Jwt.MetroLib.Provider
 
                         var store = new X509Store(OAuthConfig.Config.CertStore, OAuthConfig.Config.CertLocation);
                         store.Open(OpenFlags.ReadOnly);
-                        var matches = store.Certificates.Find(OAuthConfig.Config.CertFindType, OAuthConfig.Config.CertFindValue, false);
-
-                        if (matches.Count == 0)
+                        try
                         {
-                            throw new Exception("Certificate cannot be found");
+                            var matches = store.Certificates.Find(OAuthConfig.Config.CertFindType, OAuthConfig.Config.CertFindValue, false);
+
+                            if (matches.Count == 0)
+                            {
+                                throw new Exception("Certificate cannot be found");
+                            }
+                            var x509 = matches[0];
+                            var x509SigningCredentials = new X509SigningCredentials(x509);
+
+                            var issued = data.Properties.IssuedUtc;
+                            var expires = data.Properties.ExpiresUtc;
+                            if (issued != null && expires != null)
+                            {
+                                var token = new JwtSecurityToken(_issuer, audience, data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, x509SigningCredentials);
+                                var handler = new JwtSecurityTokenHandler();
+                                var jwt = handler.WriteToken(token);
+                                return jwt;
+                            }
                         }
-                        var x509 = matches[0];
-                        var x509SigningCredentials = new X509SigningCredentials(x509);
-
-                        var issued = data.Properties.IssuedUtc;
-                        var expires = data.Properties.ExpiresUtc;
-                        if (issued != null && expires != null)
+                        finally
                         {
-                            var token = new JwtSecurityToken(_issuer, audience, data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, x509SigningCredentials);
-                            var handler = new JwtSecurityTokenHandler();
-                            var jwt = handler.WriteToken(token);
-                            return jwt;
+                            store.Close();
                         }
                     }
                 }
